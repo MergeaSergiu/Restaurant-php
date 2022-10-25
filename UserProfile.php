@@ -10,8 +10,12 @@ include('top.php');
             </div>
         </div>
 
-        <?php session_start();
-        echo "Welcome " . $_SESSION['user_name']?>
+        <p><strong>
+<?php
+use LDAP\Result;
+ session_start();
+ echo "Welcome " . $_SESSION['user_name'];
+?></p>
 
 <?php 
     $mysqli = require __DIR__ . "/database.php";

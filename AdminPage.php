@@ -1,11 +1,4 @@
 
-<?php
-
-use LDAP\Result;
-
- session_start();
- echo "Welcome " . $_SESSION['user_name'];
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,6 +19,12 @@ include('top.php');
             </div>  
             </div>
         </div>
+        <p><strong>
+<?php
+use LDAP\Result;
+ session_start();
+ echo "Welcome " . $_SESSION['user_name'];
+?></p>
 
 </body>
 </html>
