@@ -9,14 +9,30 @@ include('top.php');
             </div>  
             </div>
         </div>
-
-        <p><strong>
+<p><strong>
 <?php
 use LDAP\Result;
  session_start();
  echo "Welcome " . $_SESSION['user_name'];
 ?></p>
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Data Display</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    </head>
+    <body style="margin: 50px;">
+    <h1> Date contului</h1>
+    <br>
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>    
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+    </thead>
+    <tbody>
 <?php 
     $mysqli = require __DIR__ . "/database.php";
     $username= $_SESSION['user_name'];
@@ -26,38 +42,55 @@ use LDAP\Result;
   $sql = "SELECT * from user WHERE  name = '$username' ";
  
   if($result = $mysqli->query($sql)){
-    echo "Datele contului";
-   echo "<br>";
-  while ($row = $result->fetch_assoc()){
-    $field1name = $row["email"];
-    echo "Email: ",'<b>' .$field1name. '</b><br/>';
-  }
+    while ($row = $result->fetch_assoc()){
+      echo "<tr>
+      <td>" . $row["name"] . "</td>
+      <td>" . $row["email"] . "</td>
+      </tr>";
+    }
+    $result->free();
 
   $result = $mysqli->query($sql);
   $user = $result->fetch_assoc();
 
   $result->free();
     }
+  }
+   
+?>
+</tbody>
+  </table>
 
+  <table class="table table-striped table-dark">
+        <thead>
+            <tr>    
+                <th>Res.Date</th>
+                <th>Start Hour</th>
+                <th>Nr.Persoane</th>
+                <th>Feluri Mancare</th>
+            </tr>
+    </thead>
+    <tbody>
+    <?php 
     $mysqli2 = require __DIR__ . "/res-lib.php";
     $sql2 = "SELECT * from res_rezervari WHERE  email = '{$user["email"]}' ";
-    echo "<br>";
     if($result2 = $mysqli->query($sql2)){
-    echo "Datele rezervarilor:";
-   echo "<br>";
-  while ($row = $result2->fetch_assoc()){
-    $field1name = $row["res_date"];
-    $field2name = $row["res_ora"];
-    $field3name = $row["nr_persoane"];
-    $field4name = $row["feluri_mancare"];
-    echo "Data: ",'<b>' .$field1name. '</b>' , " Ora: ", '<b>' .$field2name. '</b>',  " Nr_Persoane: ", '<b>' .$field3name. '</b>', " Feluri_Mancare: ", '<b>' .$field4name. '</b><br/>';
-  }
-
+        while ($row = $result2->fetch_assoc()){
+    echo "<tr>
+      <td>" . $row["res_date"] . "</td>
+      <td>" . $row["res_ora"] . "</td>
+      <td>" . $row["nr_persoane"] . "</td>
+      <td>" . $row["feluri_mancare"] . "</td>
+      </tr>";
+    }
   $result2->free();
-    
   }
-}
 ?>
+      </tbody>
+    </table>
+  </body>
+</html>
+
 
 
     
