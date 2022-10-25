@@ -12,41 +12,45 @@ include('top.php');
 ?>
 
 <div class= "container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <?php include('NavbarUserDataPage.php'); ?>
-            </div>  
-            </div>
-        </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <?php include('NavbarUserDataPage.php'); ?>
+        </div>  
+    </div>
+</div>
 <!DOCTYPE html>
 <html>
     <head>
         <title>User Data Display</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-        <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-        <script src="/js/validation.js" defer></script>
     </head>
-    <body>
-    <div>
-<?php 
+    <body style="margin: 50px;">
+    <h1> List of Users</h1>
+    <br>
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>    
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+    </thead>
+    <tbody>
+    <?php 
     $mysqli = require __DIR__ . "/database.php";
-   echo "List of accounts created at restaurant";
-   echo "<br>";
-  $sql = "SELECT * from user";
-  if($result = $mysqli->query($sql)){
+    $sql = "SELECT * from user";
+    if($result = $mysqli->query($sql)){
 
   while ($row = $result->fetch_assoc()){
-    $field1name = $row["name"];
-    $field2name = $row["email"];
-    echo " \n";
-    echo "Name: ",'<b>' .$field1name. '</b>', " Email: ", '<b>' .$field2name. '</b><br/>';
+    echo "<tr>
+    <td>" . $row["name"] . "</td>
+    <td>" . $row["email"] . "</td>
+    </tr>";
   }
-
   $result->free();
 }
 ?>
-</div> 
-
+</tbody>
+</table>
 </body>
 </html>
