@@ -1,5 +1,4 @@
 <?php
-
 $is_invalid = false;
 $gasit =false;
 
@@ -56,6 +55,7 @@ if($gasit == false){
 }
 
 ?>
+
 <?php
 include('top.php');
 ?>
@@ -69,27 +69,41 @@ include('top.php');
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title>Login Page</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     </head>
     <body>
-        <h1>Login</h1>
+        <div class="container">
+            <div class=" row justify-content-cneter" >
+                <div class ="card w-70">
+                        <div class="card-header text-center">
+                        <h1>Login Form</h1>
         <?php if($is_invalid): ?>
             <em>Invalid login </em>
-        <?php endif; ?>
-
+        <?php endif; ?>   
+                    </div>
+                <div class="card-body">
         <form method="post">
-        <label for="email">email</label>
+            <div class="form-group">
+        <label for="email">Email Adress</label>
         <input type="email" name="email" id="email"
             value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
-
+            </div>
+            <div class="form-group">
         <label for="password">Password</label>
         <input type="password" name="password" id="password">
-
-        <button>Log in</button>
+        </div>
+        <button type="button" class="btn btn-success">Login</button>
 
         </form>
+                </div>
+                <div class="card-footer text-right">
+                    <small>&copy; Restaurant App</small>
+                </div>
+                </div>
+            </div>
+        </div>
 
     </body>
 </html>
