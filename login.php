@@ -94,7 +94,7 @@ include('top.php');
         <label for="password">Password</label>
         <input type="password" name="password" id="password">
         </div>
-        <button type="button" class="btn btn-success">Login</button>
+        <button class="btn btn-success">Login</button>
 
         </form>
                 </div>
@@ -104,6 +104,5 @@ include('top.php');
                 </div>
             </div>
         </div>
-
     </body>
 </html>
