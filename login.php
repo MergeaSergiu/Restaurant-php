@@ -75,7 +75,7 @@ include('top.php');
     </head>
     <body>
         <div class="container">
-            <div class=" row justify-content-cneter" >
+            <div class=" row justify-content-center" >
                 <div class ="card w-70">
                         <div class="card-header text-center">
                         <h1>Login Form</h1>
