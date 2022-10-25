@@ -23,8 +23,12 @@ include('top.php');
     </head>
     
     <body>
-        <?php session_start();
-        echo "Welcome " . $_SESSION['user_name']?>
+    <p><strong>
+    <?php
+    use LDAP\Result;
+    session_start();
+    echo "Welcome " . $_SESSION['user_name'];
+    ?></p>
         <h1>Rezerva Masa</h1>
         <form action="Rezervari.php" method="post">
             <div>
