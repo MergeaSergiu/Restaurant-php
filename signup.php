@@ -16,9 +16,8 @@ include('top.php');
     <head>
         <title>SignUp</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-        <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-        <script src="/js/validation.js" defer></script>
     </head>
     <body>
 

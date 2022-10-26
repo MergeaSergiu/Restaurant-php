@@ -1,15 +1,6 @@
 <?php
 include('top.php');
 ?>
-
-<div class= "container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <?php include('NavbarUserDataPage.php'); ?>
-        </div>  
-    </div>
-</div>
-
 <p><strong>
 <?php
  session_start();
@@ -20,9 +11,17 @@ include('top.php');
     <head>
         <title>User Data Display</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     </head>
     <body style="margin: 50px;">
+    <div class= "container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <?php include('NavbarUserDataPage.php'); ?>
+        </div>  
+    </div>
+</div>
     <h1> List of Users</h1>
     <br>
     <table class="table table-striped table-dark">

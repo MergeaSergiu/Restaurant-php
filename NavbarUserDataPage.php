@@ -21,6 +21,12 @@
         <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="logout.php"> <i class="fa fa-user"></i> Log out</a>
         </li>
+        <div class="input-group">
+        <form method="post">
+        <input type="text" name="search" class="form-control rounded" placeholder="Search by Name" aria-label="Search" aria-describedby="search-addon" />
+        <button type="submit" name="submit" class="btn btn-outline-primary">search</button>
+        </form>
+      </div>
       </ul>
 
       <ul class="navbar-nav ml-auto">
@@ -28,7 +34,6 @@
             <a class="nav-link test-white" href="#"><i class="fa fa-facebook"> </i></a>
         </li>
         </ul>
-
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link test-white" href="#"><i class="fa fa-youtube"> </i></a>
@@ -38,3 +43,4 @@
     </div>
   </div>
 </nav>
+
