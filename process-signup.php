@@ -1,5 +1,7 @@
 <?php
 
+$email = $_POST["email"];
+
 if(empty($_POST["name"])){
     
 }
@@ -29,8 +31,14 @@ $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
  $mysqli = require __DIR__ . "/database.php";
 
  require __DIR__ ."/database.php";
+$count = 0;
+$sql2 = "SELECT * FROM user WHERE email = '$email'";
 
- $sql = "INSERT INTO user (name, email, password_hash) 
+$rscheck = $mysqli->query($sql2);
+$count = mysqli_num_rows($rscheck);
+if($count === 0){
+
+    $sql = "INSERT INTO user (name, email, password_hash) 
             VALUES(?,?,?)";
 
 $stmt = $mysqli->stmt_init();
@@ -47,10 +55,11 @@ $stmt->bind_param("sss",
 if($stmt->execute()){
       header("Rezervari_page.html");
       exit;  
-} else{
-        if($mysqli->errno == 1062){
-            die("email already taken");
-        }
-        die($mysqli->error . " " . $mysqli->errno);
+} else {
+    echo "Nu s-a inregistrat contul";
+}
+
+}else{
+    echo "Email already exist";
 }
 ?>
