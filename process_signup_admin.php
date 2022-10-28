@@ -1,4 +1,5 @@
 <?php
+$email = $_POST["email"];
 
 if(empty($_POST["name"])){
 }
@@ -30,10 +31,19 @@ $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
  require __DIR__ ."/database.php";
 
- $sql = "INSERT INTO user (name, email, password_hash) 
+ $count = 0;
+$sql2 = "SELECT * FROM user WHERE email = '$email'";
+
+$rscheck = $mysqli->query($sql2);
+$count = mysqli_num_rows($rscheck);
+if($count === 0){
+
+    $mysqli2 = require __DIR__ . "/res-lib.php";
+
+    $sql = "INSERT INTO user (name, email, password_hash) 
             VALUES(?,?,?)";
 
-$stmt = $mysqli->stmt_init();
+$stmt = $mysqli2->stmt_init();
 
 if( ! $stmt->prepare($sql)){
     die("SQL error: " . $mysqli->error);
@@ -45,13 +55,13 @@ $stmt->bind_param("sss",
                 $password_hash);
 
 if($stmt->execute()){
-    echo '<script> alert("Data Saved"); </script>';
-    header("SQL_User_Display.php");
-      exit;  
-} else{
-        if($mysqli->errno == 1062){
-            echo '<script> alert("Email Already Exist"); </script>';
-        }
-        die($mysqli->error . " " . $mysqli->errno);
+      header("Rezervari_page.html");
+      $stmt->close();
+} else {
+    echo "Nu s-a inregistrat contul";
+}
+
+}else{
+    echo "Email already exist";
 }
 ?>

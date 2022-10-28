@@ -25,6 +25,54 @@ use LDAP\Result;
  echo "Welcome " . $_SESSION['user_name'];
 ?></p>
         <h1>List of Reservation</h1>
+
+<div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="Rezervari_admin.php" method="post">
+        <div class="modal-body">
+           <div class="form-group">
+           <label for="res_date">Data</label>
+                <input type="date" id="res_date" name="res_date" placeholder="Enter Date...">
+            </div>
+
+            <div class="form-group">
+            <label for="res_ora">Ora Rezervare</label>
+                <input type="time" id="res_ora" name="res_ora" placeholder="Enter a Hour..."> 
+            </div>
+
+            <div class="form-group">
+            <label for="nr_persoane">Numar Persoane</label>
+                <input type="number" id="nr_persoane" name="nr_persoane" placeholder="Enter No. Persons...">
+            </div>
+
+            <div class="form-group">
+            <label for="feluri_mancare">Meniul dorit</label>
+                <input type="text" id="feluri_mancare" name="feluri_mancare" placeholder="Enter Food...">
+            </div>
+
+            <div class="form_group">
+            <label for="feluri_mancare">Meniul dorit</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email...">
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" name="insertdata" class="btn btn-primary">Save Data</button>
+      </div>    
+    </form>  
+    </div>
+    </div>
+  </div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddUser">
+  Add Data
+</button>
         <br>
         <table class="table table-striped table-dark">
             <thead>
