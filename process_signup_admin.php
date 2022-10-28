@@ -1,12 +1,9 @@
 <?php
 
-$email = $_POST["email"];
-
 if(empty($_POST["name"])){
-    
 }
 
-if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+if (! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
     die("Valid email is required");
 }
 
@@ -26,19 +23,14 @@ if( $_POST["password"] !== $_POST["password_confirmation"]) {
     die("Passwords do not match");
 }
 
+
 $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
  $mysqli = require __DIR__ . "/database.php";
 
  require __DIR__ ."/database.php";
-$count = 0;
-$sql2 = "SELECT * FROM user WHERE email = '$email'";
 
-$rscheck = $mysqli->query($sql2);
-$count = mysqli_num_rows($rscheck);
-if($count === 0){
-
-    $sql = "INSERT INTO user (name, email, password_hash) 
+ $sql = "INSERT INTO user (name, email, password_hash) 
             VALUES(?,?,?)";
 
 $stmt = $mysqli->stmt_init();
@@ -53,13 +45,13 @@ $stmt->bind_param("sss",
                 $password_hash);
 
 if($stmt->execute()){
-      header("Rezervari_page.html");
+    echo '<script> alert("Data Saved"); </script>';
+    header("SQL_User_Display.php");
       exit;  
-} else {
-    echo "Nu s-a inregistrat contul";
-}
-
-}else{
-    echo "Email already exist";
+} else{
+        if($mysqli->errno == 1062){
+            echo '<script> alert("Email Already Exist"); </script>';
+        }
+        die($mysqli->error . " " . $mysqli->errno);
 }
 ?>

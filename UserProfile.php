@@ -1,14 +1,6 @@
 <?php
 include('top.php');
 ?>
-
-<div class= "container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <?php include('NavbarProfile.php'); ?>
-            </div>  
-            </div>
-        </div>
 <p><strong>
 <?php
 use LDAP\Result;
@@ -20,10 +12,18 @@ use LDAP\Result;
     <head>
         <title>User Data Display</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     </head>
-    <body style="margin: 50px;">
-    <h1> Date contului</h1>
+    <body>
+    <div class= "container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <?php include('NavbarProfile.php'); ?>
+            </div>  
+            </div>
+        </div>
+    <h1> Datele contului</h1>
     <br>
     <table class="table table-striped table-dark">
         <thead>

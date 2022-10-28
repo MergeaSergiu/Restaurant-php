@@ -1,17 +1,15 @@
-
+<?php
+include('top.php');
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Admin Page</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-        <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-        <script src="/js/validation.js" defer></script>
     </head>
-    <body>
-    <?php
-include('top.php');
-?>
+    <body> 
     <div class= "container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -19,12 +17,11 @@ include('top.php');
             </div>  
             </div>
         </div>
-        <p><strong>
-<?php
+        <?php
 use LDAP\Result;
  session_start();
  echo "Welcome " . $_SESSION['user_name'];
-?></p>
+?>
 
 </body>
 </html>

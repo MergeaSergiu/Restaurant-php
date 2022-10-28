@@ -1,26 +1,22 @@
-
 <?php
 include('top.php');
 ?>
-
-<div class= "container-fluid">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    </head>
+    <body>
+    <div class= "container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <?php include('Navbar.php'); ?>
             </div>  
             </div>
         </div>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>SignUp</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-        <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-        <script src="/js/validation.js" defer></script>
-    </head>
-    <body>
 
         <div class="container vh-100">
             <div class = "row justify-content-center">
