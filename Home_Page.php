@@ -1,14 +1,18 @@
 <?php
 include('top.php');
 ?>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
+
   <title>Home Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <link rel="styleSheet" href="./css/background_color=t?php echo round(microtime(true)*1000);?>">
 </head>
-<body>
+<body >
+  <div class="container">
 <div class="container-fluid width">
         <div class="row">
             <div class="col-lg-12">
@@ -16,6 +20,10 @@ include('top.php');
             </div>  
             </div>
 </div>
+  </div>
+  <br>
+  <br>
+<div class="container">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -49,6 +57,7 @@ include('top.php');
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div>
 </div>
 </body>
 </html>

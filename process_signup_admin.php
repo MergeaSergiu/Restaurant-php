@@ -1,10 +1,9 @@
 <?php
 
 if(empty($_POST["name"])){
-    
 }
 
-if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+if (! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
     die("Valid email is required");
 }
 
@@ -23,6 +22,7 @@ if( ! preg_match("/[0-9]/", $_POST["password"])){
 if( $_POST["password"] !== $_POST["password_confirmation"]) {
     die("Passwords do not match");
 }
+
 
 $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
@@ -45,11 +45,12 @@ $stmt->bind_param("sss",
                 $password_hash);
 
 if($stmt->execute()){
-      header("Rezervari_page.html");
+    echo '<script> alert("Data Saved"); </script>';
+    header("SQL_User_Display.php");
       exit;  
 } else{
         if($mysqli->errno == 1062){
-            die("email already taken");
+            echo '<script> alert("Email Already Exist"); </script>';
         }
         die($mysqli->error . " " . $mysqli->errno);
 }
