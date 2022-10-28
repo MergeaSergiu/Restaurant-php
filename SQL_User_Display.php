@@ -23,6 +23,36 @@ include('top.php');
  echo "Welcome " . $_SESSION['user_name'];
 ?></p>
     <h1> List of Users</h1>
+
+    <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Delete User Data </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form action="deleteData.php" method="POST">
+
+                    <div class="modal-body">
+
+                        <input type="hidden" name="delete_id" id="delete_id">
+
+                        <h4> Do you want to Delete this Data ??</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"> NO </button>
+                        <button type="submit" name="deletedata" class="btn btn-primary"> Yes !! Delete it. </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 <!-- Modal -->
 <div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -65,34 +95,60 @@ include('top.php');
     </div>
     </div>
   </div>
-</div>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddUser">
   Add Data
 </button>
     <br>
     <table class="table table-striped table-dark">
         <thead>
-            <tr>    
-                <th>Name</th>
-                <th>Email</th>
+            <tr>
+                <th scope="col">ID_Cont</th>    
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Delete</th>
             </tr>
     </thead>
-    <tbody>
     <?php 
     $mysqli = require __DIR__ . "/database.php";
     $sql = "SELECT * from user";
     if($result = $mysqli->query($sql)){
 
-  while ($row = $result->fetch_assoc()){
-    echo "<tr>
-    <td>" . $row["name"] . "</td>
-    <td>" . $row["email"] . "</td>
-    </tr>";
+  while ($row = $result->fetch_assoc()){?>
+    <tbody>
+    <tr>
+        <td><?php echo $row["id"] ?> </td>
+        <td><?php echo $row["name"] ?> </td>
+        <td><?php echo $row["email"]?></td>
+        <td><button type="button" class="btn btn-danger deletebtn">Delete </button> </td>
+        </tr>
+        <?php
   }
   $result->free();
 }
 ?>
 </tbody>
 </table>
+<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+        $(document).ready(function () {
+
+            $('.deletebtn').on('click', function () {
+
+                $('#deletemodal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#delete_id').val(data[0]);
+
+            });
+        });
+    </script>
 </body>
 </html>
