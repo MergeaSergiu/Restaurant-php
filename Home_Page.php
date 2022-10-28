@@ -9,7 +9,6 @@ include('top.php');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-  <link rel="styleSheet" href="./css/background_color=t?php echo round(microtime(true)*1000);?>">
 </head>
 <body >
   <div class="container">
@@ -59,5 +58,18 @@ include('top.php');
   </a>
 </div>
 </div>
+<br>
+<br>
+<div class="container">
+<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Locatia Noastra" data-content="Resita, Str.Fara Nume, nr.10">Locatia Noastra</button>
+<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Programul Nostru" data-content="Marti- Duminica: 11-23  Luni: 9-20">Orarul Nostru</button>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
+  
 </body>
 </html>
