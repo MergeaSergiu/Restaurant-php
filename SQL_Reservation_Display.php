@@ -55,7 +55,7 @@ use LDAP\Result;
         </div>
     </div>
 
-
+<!-- ADD POP UP FORM (Bootstrap MODAL) -->
 <div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -65,10 +65,9 @@ use LDAP\Result;
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="Rezervari_admin.php" method="post">
+      <form action="Rezervari_admin.php" method="post" >
         <div class="modal-body">
            <div class="form-group">
-            
            <label for="res_date">Data</label>
                 <input type="date" id="res_date" name="res_date" placeholder="Enter Date...">
             </div>

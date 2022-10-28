@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 $email = $_POST["email"];
 
 if(empty($_POST["res_date"])){
@@ -9,17 +8,17 @@ if(empty($_POST["res_date"])){
 
 if ( empty($_POST["res_ora"])){
     die("A valid hour is required");
-    
 }
 
 if($_POST["nr_persoane"] <0  || $_POST["nr_persoane"] >10 ) {
     die("A valid number of person");
-    
 }
 
 if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
     die("Valid email is required");
 }
+
+if(isset($_POST['insertdata'])){
 
 $mysqli = require __DIR__ . "/database.php";
 
@@ -48,14 +47,15 @@ if($count === 1){
                    $_POST["email"]);
     
     if($stmt->execute()){
-     header("SQL_Reservation_Page.html");
+     header("SQL_Reservation_Display.html");
       $stmt->close();
     }
     else {
         echo "Nu s-a inregistrat contul";
     }
+}
 }else{
     echo "Email does not exist";
 }
-    
+
 ?>

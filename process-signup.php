@@ -54,7 +54,7 @@ $stmt->bind_param("sss",
 
 if($stmt->execute()){
       header("Rezervari_page.html");
-      exit;  
+      $stmt->close();
 } else {
     echo "Nu s-a inregistrat contul";
 }
