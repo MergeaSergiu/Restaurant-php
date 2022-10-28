@@ -13,13 +13,11 @@
           <a class="nav-link active text-white" aria-current="page" href="login.php"> <i class="fa fa-user"></i> Login Page</a>
         </li>
       </ul>
-
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link test-white" href="#"><i class="fa fa-facebook"> </i></a>
         </li>
         </ul>
-
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link test-white" href="#"><i class="fa fa-youtube"> </i></a>

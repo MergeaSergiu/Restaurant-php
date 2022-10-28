@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+<nav class="navbar navbar-expand-sm navbar-light bg-danger">
   <div class="container-fluid">
     <a class="navbar-brand text-white" href="Home_Page.php">Restaurant</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,12 +21,6 @@
         <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="logout.php"> <i class="fa fa-user"></i> Log out</a>
         </li>
-        <div class="input-group">
-        <form method="post">
-        <input type="text" name="search" class="form-control rounded" placeholder="Search by Name" aria-label="Search" aria-describedby="search-addon" />
-        <button type="submit" name="submit" class="btn btn-outline-primary">search</button>
-        </form>
-      </div>
       </ul>
 
       <ul class="navbar-nav ml-auto">

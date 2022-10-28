@@ -1,16 +1,6 @@
-
 <?php
 include('top.php');
 ?>
-
-<div class= "container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <?php include('Navbar.php'); ?>
-            </div>  
-            </div>
-        </div>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,6 +10,13 @@ include('top.php');
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     </head>
     <body>
+    <div class= "container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <?php include('Navbar.php'); ?>
+            </div>  
+            </div>
+        </div>
 
         <div class="container vh-100">
             <div class = "row justify-content-center">
