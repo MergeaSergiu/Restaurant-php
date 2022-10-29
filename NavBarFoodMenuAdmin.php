@@ -19,7 +19,7 @@
           <a class="nav-link active text-white" aria-current="page" href="SQL_User_Display.php"> <i class="fa fa-user"></i> User Data</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="SQL_Food_Menu_Display.php"> <i class="fa fa-user"></i> Reservation Data</a>
+          <a class="nav-link active text-white" aria-current="page" href="SQL_Reservation_Display.php"> <i class="fa fa-user"></i> Reservation Data</a>
         </li>
 
         <li class="nav-item active">
