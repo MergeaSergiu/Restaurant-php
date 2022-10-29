@@ -17,11 +17,11 @@ include('top.php');
             </div>  
             </div>
         </div>
-        <?php
+        <p><strong><?php
 use LDAP\Result;
  session_start();
  echo "Welcome " . $_SESSION['user_name'];
-?>
+?></p>
 
 <div class="card" style="width: 18rem;">
   <img src="./imagini/poza8.jpg" class="card-img-top" alt="...">

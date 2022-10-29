@@ -82,13 +82,8 @@ use LDAP\Result;
                 <input type="number" id="nr_persoane" name="nr_persoane" placeholder="Enter No. Persons...">
             </div>
 
-            <div class="form-group">
-            <label for="feluri_mancare">Meniul dorit</label>
-                <input type="text" id="feluri_mancare" name="feluri_mancare" placeholder="Enter Food...">
-            </div>
-
             <div class="form_group">
-            <label for="feluri_mancare">Meniul dorit</label>
+            <label for="email">Email Adress</label>
                 <input type="email" id="email" name="email" placeholder="Enter Email...">
             </div>
       </div>
@@ -113,7 +108,6 @@ use LDAP\Result;
         <th scope="col">Res. Date</th>
 				<th scope="col">Start Hour</th>
 				<th scope="col">Nr.Persoane</th>
-				<th scope="col">Feluri Mancare</th>
 				<th scope="col">Email</th>
         <th scope="col">Delete</th>
                 </tr>
@@ -130,7 +124,6 @@ use LDAP\Result;
         <td><?php echo $row["res_date"] ?> </td>
         <td><?php echo $row["res_ora"] ?> </td>
         <td><?php echo $row["nr_persoane"] ?> </td>
-        <td><?php echo $row["feluri_mancare"] ?> </td>
         <td><?php echo $row["email"]?></td>
         <td><button type="button" class="btn btn-danger deletebtn">Delete </button> </td>
     </tr>

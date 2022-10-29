@@ -30,7 +30,7 @@ $count = mysqli_num_rows($rscheck);
 if($count === 1){        
     $mysqli2 = require __DIR__ . "/res-lib.php";
     
-    $sql = "INSERT INTO res_rezervari (res_date,res_ora,nr_persoane,feluri_mancare,email) 
+    $sql = "INSERT INTO res_rezervari (res_date,res_ora,nr_persoane,email) 
                VALUES(?,?,?,?,?)";
 
     $stmt = $mysqli2->stmt_init();
@@ -43,7 +43,6 @@ if($count === 1){
                    $_POST["res_date"],
                    $_POST["res_ora"],
                    $_POST["nr_persoane"],
-                   $_POST["feluri_mancare"],
                    $_POST["email"]);
     
     if($stmt->execute()){
@@ -54,6 +53,7 @@ if($count === 1){
         echo "Nu s-a inregistrat contul";
     }
 }
+
 }else{
     echo "Email does not exist";
 }

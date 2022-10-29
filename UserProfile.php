@@ -67,7 +67,6 @@ use LDAP\Result;
                 <th>Res.Date</th>
                 <th>Start Hour</th>
                 <th>Nr.Persoane</th>
-                <th>Feluri Mancare</th>
             </tr>
     </thead>
     <tbody>
@@ -75,15 +74,16 @@ use LDAP\Result;
     $mysqli2 = require __DIR__ . "/res-lib.php";
     $sql2 = "SELECT * from res_rezervari WHERE  email = '{$user["email"]}' ";
     if($result2 = $mysqli->query($sql2)){
+
         while ($row = $result2->fetch_assoc()){
     echo "<tr>
       <td>" . $row["res_date"] . "</td>
       <td>" . $row["res_ora"] . "</td>
       <td>" . $row["nr_persoane"] . "</td>
-      <td>" . $row["feluri_mancare"] . "</td>
       </tr>";
     }
   $result2->free();
+  
   }
 ?>
       </tbody>
