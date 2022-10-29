@@ -13,6 +13,9 @@
           <a class="nav-link active text-white" aria-current="page" href="SQL_Reservation_Display.php"> <i class="fa fa-user"></i> Reservation Data</a>
         </li>
         <li class="nav-item active">
+          <a class="nav-link active text-white" aria-current="page" href="SQL_Food_Menu_Display.php"> <i class="fa fa-spoon" aria-hidden="true"></i> Food Menu</a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="logout.php"> <i class="fa fa-user"></i> Log out</a>
         </li>
       </ul>
