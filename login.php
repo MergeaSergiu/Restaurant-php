@@ -1,3 +1,6 @@
+<?
+ session_start();
+ ?>
 <?php
 include('top.php');
 ?>
@@ -8,6 +11,7 @@ include('top.php');
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+        <link rel="stylesheet" href="./css/style.css">
         <style>
             body{
                 background: #f1f5d3;
@@ -38,8 +42,14 @@ include('top.php');
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
             </div>
-        <button class="btn btn-success">Login</button>
-        </form>
+        <button class="btn btn-success" name="login">Login</button>
+        <?php
+                    if(isset($_SESSION["error"])){
+                        $error = $_SESSION["error"];
+                        echo "<span>$error</span>";
+                    }
+                ?>  
+    </form>
         </div>
                 <div class="card-footer text-right">
                     <small>&copy; Restaurant App</small>
@@ -48,3 +58,7 @@ include('top.php');
         </div>
     </body>
 </html>
+
+<?php
+    unset($_SESSION["error"]);
+?>
