@@ -9,6 +9,11 @@ include('top.php');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <style>
+            body{
+                background: #f1f5d3;
+            }
+        </style>
 </head>
 <body >
   <div class="container">

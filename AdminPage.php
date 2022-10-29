@@ -8,6 +8,11 @@ include('top.php');
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+        <style>
+            body{
+                background: #f1f5d3;
+            }
+        </style>
     </head>
     <body> 
     <div class= "container-fluid">
@@ -22,7 +27,6 @@ use LDAP\Result;
  session_start();
  echo "Welcome " . $_SESSION['user_name'];
 ?></p>
-
 <div class="card" style="width: 18rem;">
   <img src="./imagini/poza8.jpg" class="card-img-top" alt="...">
   <div class="card-body">

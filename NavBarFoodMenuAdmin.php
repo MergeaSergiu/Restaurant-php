@@ -13,11 +13,15 @@
           <a class="nav-link active text-white" aria-current="page" href="login.php"> <i class="fa fa-user"></i> Login Page</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="UserProfile.php"> <i class="fa fa-user"></i> User Profile Page</a>
+          <a class="nav-link active text-white" aria-current="page" href="AdminPage.php"> <i class="fa fa-user"></i> Admin Page</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="Food_Menu_Page.php"> <i class="fa fa-user"></i> Food Menu</a>
+          <a class="nav-link active text-white" aria-current="page" href="SQL_User_Display.php"> <i class="fa fa-user"></i> User Data</a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link active text-white" aria-current="page" href="SQL_Reservation_Display.php"> <i class="fa fa-user"></i> Reservation Data</a>
+        </li>
+
         <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="logout.php"> <i class="fa fa-user"></i> Log out</a>
         </li>

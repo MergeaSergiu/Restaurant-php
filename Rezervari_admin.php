@@ -46,7 +46,7 @@ if($count === 1){
                    $_POST["email"]);
     
     if($stmt->execute()){
-     header("SQL_Reservation_Display.html");
+     header("SQL_Reservation_Display.php");
       $stmt->close();
     }
     else {
