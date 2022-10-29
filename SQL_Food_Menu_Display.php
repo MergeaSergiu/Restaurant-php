@@ -23,7 +23,7 @@ use LDAP\Result;
  session_start();
  echo "Welcome " . $_SESSION['user_name'];
 ?></p>
-        <h1>List of Reservation</h1>
+        <h1>Food Menu</h1>
 
 <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
 <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -37,9 +37,14 @@ use LDAP\Result;
                     </button>
                 </div>
 
-                <form action="deleteReservation.php" method="POST">
+                <form action="deleteFood.php" method="POST"> 
+                    
+                <div class="form-group">
+                    <label for="text">Food Type</label>
+                <input type="text" id="Food_Type" name="Food_Type" placeholder="Enter Food Type..">
 
-                    <div class="modal-body">
+            </div>
+                <div class="modal-body">
 
                         <input type="hidden" name="delete_id" id="delete_id">
 
@@ -47,7 +52,7 @@ use LDAP\Result;
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"> NO </button>
-                        <button type="submit" name="deletedata" class="btn btn-primary"> Yes !! Delete it. </button>
+                        <button type="submit" name="delete_food" class="btn btn-primary"> Yes !! Delete it. </button>
                     </div>
                 </form>
 
@@ -65,11 +70,11 @@ use LDAP\Result;
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="Rezervari_admin.php" method="post" >
+      <form action="Add_Food_Admin.php" method="post" >
         <div class="modal-body">
         <div class="form-group">
            <label for="text">Food Type</label>
-                <input type="text" id="Name_Food" name="Food_Type" placeholder="Enter Food Type..">
+                <input type="text" id="Food_Type" name="Food_Type" placeholder="Enter Food Type..">
             </div>
            <div class="form-group">
            <label for="text">Food</label>
@@ -78,13 +83,13 @@ use LDAP\Result;
 
             <div class="form-group">
             <label for="text">Price</label>
-                <input type="time" id="Price" name="Price" placeholder="Enter Price..."> 
+                <input type="text" id="Price" name="Price" placeholder="Enter Price..."> 
             </div>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" name="insertdata" class="btn btn-primary">Save Data</button>
+        <button type="submit" name="insertfood" class="btn btn-primary">Save Data</button>
       </div>    
     </form>  
     </div>

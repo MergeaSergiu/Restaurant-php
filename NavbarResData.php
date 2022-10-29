@@ -16,7 +16,10 @@
           <a class="nav-link active text-white" aria-current="page" href="AdminPage.php"> <i class="fa fa-user"></i> Admin Page</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="SQL_User_Display.php"> <i class="fa fa-user"></i> User Data Display</a>
+          <a class="nav-link active text-white" aria-current="page" href="SQL_User_Display.php"> <i class="fa fa-user"></i> UserS Data</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link active text-white" aria-current="page" href="SQL_Food_Menu_Display.php"> <i class="fa fa-user"></i> Food Menu</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="logout.php"> <i class="fa fa-user"></i> Log out</a>

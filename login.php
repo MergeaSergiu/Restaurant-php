@@ -1,58 +1,30 @@
 <?php
-$is_invalid = false;
-$gasit =false;
 
-if($_SERVER["REQUEST_METHOD"] === "POST"){
+$mysqli = require __DIR__ . "/database.php";
+require __DIR__ ."/database.php";
 
-    $mysqli = require __DIR__ . "/database.php";
-
-    $sql = sprintf("SELECT * FROM user 
-                    WHERE email = 'adminsergiu@gmail.com' ",
-                    $mysqli->real_escape_string($_POST["email"]));
-
-    $result = $mysqli->query($sql);
-    $user = $result->fetch_assoc();
-    if ($user){
-        if(password_verify($_POST["password"], $user["password_hash"])){
-            
-            session_start();
-
-            session_regenerate_id();
-            $_SESSION["user_id"] = $user["id"];
-            $_SESSION["user_name"] = $user["name"];
-            $gasit = true;
-            header("Location: AdminPage.php");
-            exit;
-        }
-
-    $is_invalid = true;
- 
-if($gasit == false){
     $is_invalid = false;
+    $email=$_POST["email1"];
+    $pass=$_POST["password1"];
 
-    $sql = sprintf("SELECT * FROM user 
-                    WHERE email = '%s' ",
-                    $mysqli->real_escape_string($_POST["email"]));
-
+    $sql = "SELECT * FROM user WHERE email= '$email' AND password = '$pass'";
     $result = $mysqli->query($sql);
     $user = $result->fetch_assoc();
-    if ($user){
-        if(password_verify($_POST["password"], $user["password_hash"])){
-            
+    if($user){
+        if( $email == "adminsergiu@gmail.com" && password_verify($_POST["password"], $user["password_hash"])){
             session_start();
-
-            session_regenerate_id();
-            $_SESSION["user_id"] = $user["id"];
             $_SESSION["user_name"] = $user["name"];
-
-            header("Location: Rezervari_page.php");
-            exit;
+            header("Location: AdminPage.php");
         }
+
+        else{
+            header("Location:Rezervari_page");
+        }
+
     }
-    $is_invalid = true;
+    else{
+        echo "Contul nu exista";
     }
-    }
-}
 
 ?>
 
@@ -87,12 +59,12 @@ include('top.php');
         <form method="post">
             <div class="form-group">
         <label for="email">Email Adress</label>
-        <input type="email" name="email" id="email"
+        <input type="email" name="email1" id="email1"
             value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
             </div>
             <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password1" id="password1">
         </div>
         <button class="btn btn-success">Login</button>
 
