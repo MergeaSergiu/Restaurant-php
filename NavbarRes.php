@@ -16,6 +16,9 @@
           <a class="nav-link active text-white" aria-current="page" href="UserProfile.php"> <i class="fa fa-user"></i> User Profile Page</a>
         </li>
         <li class="nav-item active">
+          <a class="nav-link active text-white" aria-current="page" href="Food_Menu_Page.php"> <i class="fa fa-user"></i> Food Menu</a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="logout.php"> <i class="fa fa-user"></i> Log out</a>
         </li>
       </ul>

@@ -8,13 +8,12 @@ include('top.php');
         <title>Rezervare Masa</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-        div#container {
-            background-color: aqua;
-        }
-        </style>
-
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+        <style>
+            body{
+                background: #f1f5d3;
+            }
+        </style>
     </head>
     <div class= "container-fluid">
         <div class="row">
@@ -34,7 +33,6 @@ include('top.php');
             <div class=" row justify-content-center" >
                 <div class ="card w-70">
                         <div class="card-body">
-
         <h1>Rezerva Masa</h1>
         <form action="Rezervari.php" method="post">
             <div class="form-group">
