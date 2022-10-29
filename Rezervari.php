@@ -5,23 +5,27 @@ session_start();
 if(empty($_POST["res_date"])){
     die("A valid data is required");
 }
+else if( strtotime($_POST["res_date"]) < strtotime("now")){
+    die("Data nu este valabila");
+}
 
-if ( empty($_POST["res_ora"])){
+else if( empty($_POST["res_ora"])){
     die("A valid hour is required");
-    
 }
 
-if($_POST["nr_persoane"] <0  || $_POST["nr_persoane"] >10 ) {
+else if($_POST["nr_persoane"] <1  || $_POST["nr_persoane"] >10 ) {
     die("A valid number of person");
-    
 }
 
-if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
-    die("Valid email is required");
+else if ( !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+    die("A Valid email is required");
 }
 
+else if( empty($_POST["email"])){
+    die("An email is required");
+}
 
-if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_SESSION["user_name"])){
+else if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_SESSION["user_name"])){
 
 $mysqli = require __DIR__ . "/database.php";
 $sql = sprintf("SELECT * FROM user 
@@ -35,34 +39,32 @@ $sql = sprintf("SELECT * FROM user
         
     $mysqli2 = require __DIR__ . "/res-lib.php";
     
-    $sql2 = "INSERT INTO res_rezervari (res_date,res_ora,nr_persoane,feluri_mancare,email) 
-               VALUES(?,?,?,?,?)";
+    $sql2 = "INSERT INTO res_rezervari (res_date,res_ora,nr_persoane,email) 
+               VALUES(?,?,?,?)";
     $stmt = $mysqli->stmt_init();
     
     if( !$stmt->prepare($sql2)){
        die("SQL error: " . $mysqli2->error);
     }
     
-    $stmt->bind_param("sssss",
+    $stmt->bind_param("ssss",
                    $_POST["res_date"],
                    $_POST["res_ora"],
                    $_POST["nr_persoane"],
-                   $_POST["feluri_mancare"],
                    $_POST["email"]);
     
     if($stmt->execute()){
-        echo "Rezervare cu success";
+        header("Location: Rezervari_page.php");
         $stmt->close();  
     }
 }
     else{
-        
-        header("Location: Rezervari_page.php");
+        die("Nu este userul curent");
         
     }
 }else{
-        #echo "<script> alert('Userul curent nu corespunde cu emailul introduse .Incercati alt email')</script>";
-        header("Location: Rezervari_page.php");
+        
+        die("Rezervarea nu a functionat");
          
     }
     

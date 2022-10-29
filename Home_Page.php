@@ -67,7 +67,7 @@ include('top.php');
 <br>
 <div class="container">
 <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Locatia Noastra" data-content="Resita, Str.Fara Nume, nr.10">Locatia Noastra</button>
-<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Programul Nostru" data-content="Marti- Duminica: 11-23  Luni: 9-20">Orarul Nostru</button>
+<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Programul Nostru" data-content="Luni- Duminica: 10-23">Orarul Nostru</button>
 </div>
 
 <script>

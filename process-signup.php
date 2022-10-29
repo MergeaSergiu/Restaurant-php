@@ -1,29 +1,30 @@
 <?php
 
 $email = $_POST["email"];
+$error = "";
 
 if(empty($_POST["name"])){
-    
+    $error = "Invalid Name";
 }
 
 if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
-    die("Valid email is required");
+    $error = "Valid email is required";
 }
 
 if(strlen($_POST["password"]) < 8) {
-    die("Password must be at least 8 characters");
+     $error = "Password must be at least 8 characters";
 }
 
 if( ! preg_match("/[a-z]/i", $_POST["password"])){
-    die("Password must contain at least one letter");
+    $error = "Password must contain at least one letter";
 }
 
 if( ! preg_match("/[0-9]/", $_POST["password"])){
-    die("Password must contain at least one number");
+    $error = "Password must contain at least one number";
 }
 
 if( $_POST["password"] !== $_POST["password_confirmation"]) {
-    die("Passwords do not match");
+    $error = "Passwords do not match";
 }
 
 $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
@@ -56,10 +57,10 @@ if($stmt->execute()){
       header("Rezervari_page.html");
       $stmt->close();
 } else {
-    echo "Nu s-a inregistrat contul";
+    $error =  "Nu s-a inregistrat contul";
 }
 
 }else{
-    echo "Email already exist";
+    $error = "Email already exist";
 }
 ?>
