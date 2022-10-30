@@ -1,9 +1,10 @@
 <?php
 
 session_start();
+$error ="";
 
 if(empty($_POST["res_date"])){
-    die("A valid data is required");
+    $error="Apare eroarea";
 }
 else if( strtotime($_POST["res_date"]) < strtotime("now")){
     die("Data nu este valabila");
@@ -55,6 +56,11 @@ $sql = sprintf("SELECT * FROM user
     
     if($stmt->execute()){
         header("Location: Rezervari_page.php");
+        ?>
+        <div class="alert alert-success">
+  <strong>Success!</strong> Indicates a successful or positive action.
+        </div>
+        <?php
         $stmt->close();  
     }
 }
@@ -63,13 +69,9 @@ $sql = sprintf("SELECT * FROM user
         
     }
 }else{
-        
-        die("Rezervarea nu a functionat");
-         
+        die("Rezervarea nu a functionat");  
     }
-    
 }
-
 else{
     die("Ceva nu a functionat");
 }
