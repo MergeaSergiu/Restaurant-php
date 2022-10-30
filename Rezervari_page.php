@@ -2,30 +2,38 @@
 
 session_start();
 $error ="";
+$a=0;
 
 if(isset($_POST["button_res"])){
     $error ="";
+    $a=0;
 if(empty($_POST["res_date"])){
     $error="Introduceti o Data valida";
+    $a=1;
 }
 else if( strtotime($_POST["res_date"]) < strtotime("now")){
     $error ="Data nu este valabila";
+    $a=1;
 }
 
 else if( empty($_POST["res_ora"])){
     $error = "A valid hour is required";
+    $a=1;
 }
 
 else if($_POST["nr_persoane"] <1  || $_POST["nr_persoane"] >10 ) {
     $error = "A valid number of person";
+    $a=1;
 }
 
 else if ( !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
     $error = "A Valid email is required";
+    $a=1;
 }
 
 else if( empty($_POST["email"])){
     $error = "An email is required";
+    $a=1;
 }
 
 else if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_SESSION["user_name"])){
@@ -62,20 +70,21 @@ $sql = sprintf("SELECT * FROM user
 }
     else{
        $error =  "Nu este userul curent";
+       $a=1;
         
     }
 }else{
         $error = "Rezervarea nu a functionat";  
+        $a=1;
     }
 }
-else{
-    $error = "Ceva nu a functionat";
-}?>
+ if($a === 1) {?>
 <div class="alert">
   <span class="closebtn">&times;</span>  
   <strong>Danger!</strong> <?php echo $error; ?>
 </div>
 <?php
+    } 
 }
 ?>
 <?php
