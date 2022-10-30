@@ -23,10 +23,11 @@ include('top.php');
     </div>
 </div>
 <p><strong>
+<div class="alert alert-primary" role="alert">
 <?php
  session_start();
  echo "Welcome " . $_SESSION['user_name'];
-?></p>
+?></div></p>
     <h1> List of Users</h1>
 
     <!-- DELETE POP UP FORM (Bootstrap MODAL) -->

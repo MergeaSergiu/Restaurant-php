@@ -22,11 +22,13 @@ include('top.php');
             </div>  
             </div>
         </div>
-        <p><strong><?php
+<p><strong>
+<div class="alert alert-primary" role="alert">
+<?php
 use LDAP\Result;
  session_start();
  echo "Welcome " . $_SESSION['user_name'];
-?></p>
+?></div></p>
 <?php
 $mysqli = require __DIR__ . "/database_food.php";
 $sql = "SELECT * from pizza";

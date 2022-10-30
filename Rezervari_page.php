@@ -4,9 +4,9 @@ session_start();
 $error ="";
 
 if(isset($_POST["button_res"])){
-
+    $error ="";
 if(empty($_POST["res_date"])){
-    $error="Apare eroarea";
+    $error="Introduceti o Data valida";
 }
 else if( strtotime($_POST["res_date"]) < strtotime("now")){
     $error ="Data nu este valabila";
@@ -70,12 +70,14 @@ $sql = sprintf("SELECT * FROM user
 }
 else{
     $error = "Ceva nu a functionat";
-}
-
+}?>
+<div class="alert">
+  <span class="closebtn">&times;</span>  
+  <strong>Danger!</strong> <?php echo $error; ?>
+</div>
+<?php
 }
 ?>
-
-
 <?php
 include('top.php');
 ?>
@@ -91,7 +93,37 @@ include('top.php');
                 background: #f1f5d3;
             }
         </style>
+        <style>
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.success {background-color: #04AA6D;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
     </head>
+    <body>
     <div class= "container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -99,18 +131,17 @@ include('top.php');
             </div>  
             </div>
         </div>
-    <body>
     <p><strong>
+    <div class="alert alert-primary" role="alert">
     <?php
     use LDAP\Result;
     echo "Welcome " . $_SESSION['user_name'];
-    ?></p>
+    ?></div></p>
     <div class="container">
             <div class=" row justify-content-center" >
                 <div class ="card w-70">
                         <div class="card-body">
         <h1>Rezerva Masa</h1>
-        <p class="error"> <?php echo $error; ?> </p>
         <form action="" method="post">
             <div class="form-group">
                 <label for="res_date">Data</label>
@@ -139,5 +170,18 @@ include('top.php');
     </div>
     </div>
     </div>
+
+    <script>
+var close = document.getElementsByClassName("closebtn");
+var i;
+
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+</script>
     </body>
 </html>

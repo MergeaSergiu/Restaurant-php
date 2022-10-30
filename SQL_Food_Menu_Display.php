@@ -23,11 +23,12 @@ include('top.php');
     </div>
 </div>
 <p><strong>
+<div class="alert alert-primary" role="alert">
 <?php
 use LDAP\Result;
  session_start();
  echo "Welcome " . $_SESSION['user_name'];
-?></p>
+?></div></p>
         <h1>Food Menu</h1>
 
 <!-- DELETE POP UP FORM (Bootstrap MODAL) -->

@@ -22,11 +22,12 @@ include('top.php');
             </div>  
             </div>
         </div>
-        <p><strong><?php
-use LDAP\Result;
+      <p><strong>
+      <div class="alert alert-primary" role="alert">
+<?php
  session_start();
  echo "Welcome " . $_SESSION['user_name'];
-?></p>
+?></div> </p>
 <div class="card" style="width: 18rem;">
   <img src="./imagini/poza8.jpg" class="card-img-top" alt="...">
   <div class="card-body">

@@ -1,12 +1,6 @@
 <?php
 include('top.php');
 ?>
-<p><strong>
-<?php
-use LDAP\Result;
- session_start();
- echo "Welcome " . $_SESSION['user_name'];
-?></p>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,10 +20,16 @@ use LDAP\Result;
             <div class="col-lg-12">
                 <?php include('NavbarProfile.php'); ?>
             </div>  
-            </div>
         </div>
+    </div>
+    <p><strong>
+    <div class="alert alert-primary" role="alert">
+      <?php
+use LDAP\Result;
+      session_start();
+      echo "Welcome " . $_SESSION['user_name'];
+      ?></div></p>
     <h1> Datele contului</h1>
-    <br>
     <table class="table table-striped table-dark">
         <thead>
             <tr>    

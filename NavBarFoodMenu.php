@@ -15,6 +15,9 @@
         <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="Rezervari_page.php"> <i class="fa fa-user"></i> Reservation</a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link active text-white" aria-current="page" href="UserProfile.php"> <i class="fa fa-user"></i> Profile</a>
+        </li>
       </ul>
 
       <ul class="navbar-nav ml-auto">
