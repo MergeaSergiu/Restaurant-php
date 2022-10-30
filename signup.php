@@ -65,7 +65,7 @@ $stmt->bind_param("sss",
                 $password_hash);
 
 if($stmt->execute()){
-      header("Rezervari_page.html");
+      header("Location:Rezervari_page.php");
       $stmt->close();
 } else {
     $error =  "Nu s-a inregistrat contul";
@@ -82,7 +82,7 @@ if($stmt->execute()){
 if($a===1) { ?>
 <div class="alert">
   <span class="closebtn">&times;</span>  
-  <strong>Danger!</strong> <?php echo $error; ?>
+  <strong>Danger!</strong> <?php echo $error; $a=0;?>
 </div>
 <?php
 }
