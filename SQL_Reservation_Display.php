@@ -1,4 +1,94 @@
 <?php
+session_start();
+$a=0;
+$error = "";
+if(isset($_POST['insertdata'])){
+        $a=0;
+$email = $_POST["email"];
+
+if(empty($_POST["res_date"])){
+    $error = "A valid data is required";
+    $a=1;
+}
+
+else if ( empty($_POST["res_ora"])){
+    $error = "A valid hour is required";
+    $a=1;
+}
+
+else if($_POST["nr_persoane"] <0  || $_POST["nr_persoane"] >10 ) {
+    $error = "A valid number of person";
+    $a=1;
+}
+
+else if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+    $error = "Valid email is required";
+    $a=1;
+}
+
+else{
+
+$mysqli = require __DIR__ . "/database.php";
+
+$count = 0;
+$sql2 = "SELECT * FROM user WHERE email = '$email'";
+
+$rscheck = $mysqli->query($sql2);
+$count = mysqli_num_rows($rscheck);
+if($count === 1){        
+    $mysqli2 = require __DIR__ . "/res-lib.php";
+    
+    $sql = "INSERT INTO res_rezervari (res_date,res_ora,nr_persoane,email) 
+               VALUES(?,?,?,?)";
+
+    $stmt = $mysqli2->stmt_init();
+    
+    if( ! $stmt->prepare($sql)){
+       die("SQL error: " . $mysqli2->error);
+    }
+    
+    $stmt->bind_param("ssss",
+                   $_POST["res_date"],
+                   $_POST["res_ora"],
+                   $_POST["nr_persoane"],
+                   $_POST["email"]);
+    
+    if($stmt->execute()){
+     header("SQL_Reservation_Display.php");
+     $error = "Rezervarea a fost efectuata cu succes";
+     $a=2;
+      $stmt->close();
+    }
+    else {
+        $error = "Nu s-a inregistrat contul";
+        $a=1;
+    }
+}else{
+    $error = "Nu exista acest user";
+    $a =1;
+}
+
+}
+
+}
+if($a === 1) {?>
+    <div class="alert">
+      <span class="closebtn">&times;</span>  
+      <strong>Atentie!</strong> <?php echo $error; ?>
+    </div>
+    <?php
+    }
+else if($a == 2) {?>
+    <div class="alert2">
+    <span class="closebtn">&times;</span>  
+    <strong>Ura!</strong> <?php echo $error; ?>
+  </div>
+  <?php
+}
+
+?>
+
+<?php
 include('top.php');
 ?>
 <!DOCTYPE html>
@@ -13,7 +103,51 @@ include('top.php');
             body{
                 background: #f1f5d3;
             }
-        </style>
+    </style>
+    <style>
+    .alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.success {background-color: #04AA6D;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.alert2 {
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert2.success {background-color: #04AA6D;}
+.alert2.info {background-color: #2196F3;}
+.alert2.warning {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+</style>
+
     <body>
     <div class= "container-fluid">
     <div class="row">
@@ -23,11 +157,11 @@ include('top.php');
     </div>
 </div>
 <p><strong>
+<div class="alert alert-primary" role="alert">
 <?php
 use LDAP\Result;
- session_start();
  echo "Welcome " . $_SESSION['user_name'];
-?></p>
+?></div></p>
         <h1>List of Reservation</h1>
 
 <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
@@ -70,7 +204,7 @@ use LDAP\Result;
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="Rezervari_admin.php" method="post" >
+      <form action="" method="post" >
         <div class="modal-body">
            <div class="form-group">
            <label for="res_date">Data</label>
@@ -101,7 +235,7 @@ use LDAP\Result;
     </div>
   </div>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddUser">
-  Add Data
+  Add Reservation
 </button>
 
         <br>
@@ -161,5 +295,18 @@ use LDAP\Result;
             });
         });
     </script>
+
+<script>
+var close = document.getElementsByClassName("closebtn");
+var i;
+
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+        </script>
     </body>
 </html>

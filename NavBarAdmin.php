@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="SQL_User_Display.php"><i class="fa fa-user"></i> User Data</a>
+          <a class="nav-link active text-white" aria-current="page" href="SQL_User_Display.php"><i class="fa fa-user"></i> Users bg-danger</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="SQL_Reservation_Display.php"> <i class="fa fa-user"></i> Reservation Data</a>
+          <a class="nav-link active text-white" aria-current="page" href="SQL_Reservation_Display.php"> <i class="fa fa-user"></i> Reservations</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="SQL_Food_Menu_Display.php"> <i class="fa fa-spoon" aria-hidden="true"></i> Food Menu</a>
+          <a class="nav-link active text-white" aria-current="page" href="SQL_Food_Menu_Display.php"> <i class="fa fa-spoon"></i> Food Menu</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="logout.php"> <i class="fa fa-user"></i> Log out</a>

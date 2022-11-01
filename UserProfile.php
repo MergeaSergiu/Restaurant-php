@@ -1,12 +1,9 @@
+
 <?php
+session_start();
+$id=0;
 include('top.php');
 ?>
-<p><strong>
-<?php
-use LDAP\Result;
- session_start();
- echo "Welcome " . $_SESSION['user_name'];
-?></p>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,10 +23,15 @@ use LDAP\Result;
             <div class="col-lg-12">
                 <?php include('NavbarProfile.php'); ?>
             </div>  
-            </div>
         </div>
+    </div>
+    <p><strong>
+    <div class="alert alert-primary" role="alert">
+      <?php
+      echo "Welcome " . $_SESSION['user_name'];
+      ?></div></p>
     <h1> Datele contului</h1>
-    <br>
+
     <table class="table table-striped table-dark">
         <thead>
             <tr>    
@@ -72,6 +74,7 @@ use LDAP\Result;
                 <th>Res.Date</th>
                 <th>Start Hour</th>
                 <th>Nr.Persoane</th>
+                <th>Delete</th>
             </tr>
     </thead>
     <tbody>
@@ -79,16 +82,20 @@ use LDAP\Result;
     $mysqli2 = require __DIR__ . "/res-lib.php";
     $sql2 = "SELECT * from res_rezervari WHERE  email = '{$user["email"]}' ";
     if($result2 = $mysqli->query($sql2)){
-
-        while ($row = $result2->fetch_assoc()){
-    echo "<tr>
-      <td>" . $row["res_date"] . "</td>
-      <td>" . $row["res_ora"] . "</td>
-      <td>" . $row["nr_persoane"] . "</td>
-      </tr>";
-    }
-  $result2->free();
-  
+      while ($row = $result2->fetch_assoc()){?>
+        <tbody>
+        <tr>
+            <?php $id = $row["res_id"] ?>
+            <td><?php echo $row["res_date"] ?> </td>
+            <td><?php echo $row["res_ora"] ?> </td>
+            <td><?php echo $row["nr_persoane"]?></td>
+            <td>
+          <form action ="deleteResUser.php" method = "POST"> 
+            <button type="submit" name = "res_delete" value="<?=$id;?>" class="btn btn-danger">Delete </button> </form></td>
+          </tr>
+            <?php
+      }
+      $result2->free();
   }
 ?>
       </tbody>

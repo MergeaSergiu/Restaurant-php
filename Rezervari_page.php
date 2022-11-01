@@ -2,30 +2,39 @@
 
 session_start();
 $error ="";
+$succes="";
+$a=0;
 
 if(isset($_POST["button_res"])){
-
+    $error ="";
+    $a=0;
 if(empty($_POST["res_date"])){
-    $error="Apare eroarea";
+    $error="Introduceti o Data valida";
+    $a=1;
 }
 else if( strtotime($_POST["res_date"]) < strtotime("now")){
     $error ="Data nu este valabila";
+    $a=1;
 }
 
 else if( empty($_POST["res_ora"])){
     $error = "A valid hour is required";
+    $a=1;
 }
 
 else if($_POST["nr_persoane"] <1  || $_POST["nr_persoane"] >10 ) {
     $error = "A valid number of person";
+    $a=1;
 }
 
 else if ( !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
     $error = "A Valid email is required";
+    $a=1;
 }
 
 else if( empty($_POST["email"])){
     $error = "An email is required";
+    $a=1;
 }
 
 else if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_SESSION["user_name"])){
@@ -57,25 +66,38 @@ $sql = sprintf("SELECT * FROM user
                    $_POST["email"]);
     
     if($stmt->execute()){
-        header("Location: Rezervari_page.php");
+        $error = "Rezervarea a fost facuta cu succes";
+        $a=2;
     }
 }
     else{
        $error =  "Nu este userul curent";
+       $a=1;
         
     }
 }else{
         $error = "Rezervarea nu a functionat";  
+        $a=1;
     }
 }
-else{
-    $error = "Ceva nu a functionat";
-}
+ if($a === 1) {?>
+<div class="alert">
+  <span class="closebtn">&times;</span>  
+  <strong>Atentie!</strong> <?php echo $error; ?>
+</div>
+<?php
+    }
+else if($a == 2){
+    ?>
+<div class="alert2">
+  <span class="closebtn">&times;</span>  
+  <strong>Super!</strong> <?php echo $error; ?>
+</div>
+<?php
+} 
 
 }
 ?>
-
-
 <?php
 include('top.php');
 ?>
@@ -91,7 +113,50 @@ include('top.php');
                 background: #f1f5d3;
             }
         </style>
+        <style>
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.success {background-color: #04AA6D;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.alert2 {
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert2.success {background-color: #04AA6D;}
+.alert2.info {background-color: #2196F3;}
+.alert2.warning {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
     </head>
+    <body>
     <div class= "container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -99,18 +164,17 @@ include('top.php');
             </div>  
             </div>
         </div>
-    <body>
     <p><strong>
+    <div class="alert alert-primary" role="alert">
     <?php
     use LDAP\Result;
     echo "Welcome " . $_SESSION['user_name'];
-    ?></p>
+    ?></div></p>
     <div class="container">
             <div class=" row justify-content-center" >
                 <div class ="card w-70">
                         <div class="card-body">
         <h1>Rezerva Masa</h1>
-        <p class="error"> <?php echo $error; ?> </p>
         <form action="" method="post">
             <div class="form-group">
                 <label for="res_date">Data</label>
@@ -139,5 +203,18 @@ include('top.php');
     </div>
     </div>
     </div>
+
+    <script>
+var close = document.getElementsByClassName("closebtn");
+var i;
+
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+</script>
     </body>
 </html>

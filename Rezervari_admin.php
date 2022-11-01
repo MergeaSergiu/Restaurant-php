@@ -31,15 +31,15 @@ if($count === 1){
     $mysqli2 = require __DIR__ . "/res-lib.php";
     
     $sql = "INSERT INTO res_rezervari (res_date,res_ora,nr_persoane,email) 
-               VALUES(?,?,?,?,?)";
+               VALUES(?,?,?,?)";
 
     $stmt = $mysqli2->stmt_init();
     
-    if( !$stmt->prepare($sql)){
+    if( ! $stmt->prepare($sql)){
        die("SQL error: " . $mysqli2->error);
     }
     
-    $stmt->bind_param("sssss",
+    $stmt->bind_param("ssss",
                    $_POST["res_date"],
                    $_POST["res_ora"],
                    $_POST["nr_persoane"],
@@ -52,10 +52,12 @@ if($count === 1){
     else {
         echo "Nu s-a inregistrat contul";
     }
+}else{
+    die("Nu exista acest user");
 }
 
 }else{
-    echo "Email does not exist";
+    die("Email does not exist");
 }
 
 ?>
