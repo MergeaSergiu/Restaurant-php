@@ -83,7 +83,7 @@ $sql = sprintf("SELECT * FROM user
  if($a === 1) {?>
 <div class="alert">
   <span class="closebtn">&times;</span>  
-  <strong>Atentie!</strong> <?php echo $error; ?>
+  <strong><?php echo $error; ?></strong>
 </div>
 <?php
     }
@@ -91,7 +91,7 @@ else if($a == 2){
     ?>
 <div class="alert2">
   <span class="closebtn">&times;</span>  
-  <strong>Super!</strong> <?php echo $error; ?>
+  <strong><?php echo $error; ?></strong>
 </div>
 <?php
 } 

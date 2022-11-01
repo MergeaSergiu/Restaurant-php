@@ -15,6 +15,10 @@ else if ( empty($_POST["res_ora"])){
     $error = "A valid hour is required";
     $a=1;
 }
+else if( strtotime($_POST["res_date"]) < strtotime("now")){
+  $error ="Data nu este valabila";
+  $a=1;
+}
 
 else if($_POST["nr_persoane"] <0  || $_POST["nr_persoane"] >10 ) {
     $error = "A valid number of person";
@@ -74,14 +78,14 @@ if($count === 1){
 if($a === 1) {?>
     <div class="alert">
       <span class="closebtn">&times;</span>  
-      <strong>Atentie!</strong> <?php echo $error; ?>
+      <strong><?php echo $error; ?></strong>
     </div>
     <?php
     }
 else if($a == 2) {?>
     <div class="alert2">
     <span class="closebtn">&times;</span>  
-    <strong>Ura!</strong> <?php echo $error; ?>
+    <strong><?php echo $error; ?></strong>
   </div>
   <?php
 }

@@ -41,7 +41,7 @@ $food_name= $_POST["Name_Food"];
         if($stmt->execute()){
          header("SQL_Food_Menu_Display.php");
          $a = 2;
-         $error = "Ura!Fel de mancare adaugat cu succes";
+         $error = "Un fel de mancare adaugat cu succes";
           $stmt->close();
         }
         else {
@@ -64,14 +64,14 @@ $food_name= $_POST["Name_Food"];
 if($a === 1) {?>
     <div class="alert">
       <span class="closebtn">&times;</span>  
-      <strong>Atentie!</strong> <?php echo $error; ?>
+      <strong><?php echo $error; ?></strong>
     </div>
     <?php
 }
 else if($a === 2) {?>
     <div class="alert2">
       <span class="closebtn">&times;</span>  
-      <strong>Ura!</strong> <?php echo $error; ?>
+      <strong><?php echo $error; ?></strong>
     </div>
     <?php
 }

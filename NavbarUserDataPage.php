@@ -40,4 +40,9 @@
     </div>
   </div>
 </nav>
+<style>
+  nav{
+    width: 105%;
+  }
+  </style>
 

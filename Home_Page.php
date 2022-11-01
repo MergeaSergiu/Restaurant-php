@@ -69,7 +69,7 @@ include('top.php');
 </div>
 <br>
 <br>
-<div class="container">
+<div class="container-2">
 <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Locatia Noastra" data-content="Resita, Str.Fara Nume, nr.10">Locatia Noastra</button>
 <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Programul Nostru" data-content="Luni- Duminica: 10-23">Orarul Nostru</button>
 </div>
@@ -79,6 +79,13 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
 });
 </script>
+
+<style>
+  .container-2{
+    position:absolute;
+    right:42%;
+  }
+  </style>
   
 </body>
 </html>

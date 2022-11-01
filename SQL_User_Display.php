@@ -86,15 +86,15 @@ if($stmt->execute()){
 if($a === 1) {?>
     <div class="alert">
       <span class="closebtn">&times;</span>  
-      <strong>Atentie!</strong> <?php echo $error; ?>
+      <strong><?php echo $error; ?></strong>
     </div>
     <?php
         }
 else if($a == 2) {?>
-            <div class="alert2">
-            <span class="closebtn">&times;</span>  
-            <strong>Ura!</strong> <?php echo $error; ?>
-          </div>
+    <div class="alert2">
+        <span class="closebtn">&times;</span>  
+        <strong><?php echo $error; ?></strong>
+    </div>
           <?php
         }
 

@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="SQL_User_Display.php"><i class="fa fa-user"></i> Users bg-danger</a>
+          <a class="nav-link active text-white" aria-current="page" href="SQL_User_Display.php"><i class="fa fa-user"></i> Users </a>
         </li>
         <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="SQL_Reservation_Display.php"> <i class="fa fa-user"></i> Reservations</a>

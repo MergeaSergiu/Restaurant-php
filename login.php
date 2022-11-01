@@ -62,7 +62,7 @@ else {
 if($a === 1) {?>
     <div class="alert">
       <span class="closebtn">&times;</span>  
-      <strong>Danger!</strong> <?php echo $error; ?>
+      <strong><?php echo $error; ?></strong>
     </div>
     <?php
  } 

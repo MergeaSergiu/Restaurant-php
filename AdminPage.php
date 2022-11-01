@@ -13,6 +13,13 @@ include('top.php');
                 background: #f1f5d3;
             }
         </style>
+        <style>
+          .card{
+              position:absolute;
+              right:45%;
+              
+          }
+          </style>
     </head>
     <body> 
     <div class= "container-fluid">

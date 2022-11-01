@@ -85,7 +85,7 @@ if($stmt->execute()){
 if($a===1) { ?>
 <div class="alert">
   <span class="closebtn">&times;</span>  
-  <strong>Danger!</strong> <?php echo $error; $a=0;?>
+  <strong><?php echo $error; $a=0;?> </strong>
 </div>
 <?php
 }
