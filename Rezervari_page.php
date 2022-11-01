@@ -2,6 +2,7 @@
 
 session_start();
 $error ="";
+$succes="";
 $a=0;
 
 if(isset($_POST["button_res"])){
@@ -65,7 +66,8 @@ $sql = sprintf("SELECT * FROM user
                    $_POST["email"]);
     
     if($stmt->execute()){
-        header("Location: Rezervari_page.php");
+        $error = "Rezervarea a fost facuta cu succes";
+        $a=2;
     }
 }
     else{
@@ -81,10 +83,19 @@ $sql = sprintf("SELECT * FROM user
  if($a === 1) {?>
 <div class="alert">
   <span class="closebtn">&times;</span>  
-  <strong>Danger!</strong> <?php echo $error; ?>
+  <strong>Atentie!</strong> <?php echo $error; ?>
 </div>
 <?php
-    } 
+    }
+else if($a == 2){
+    ?>
+<div class="alert2">
+  <span class="closebtn">&times;</span>  
+  <strong>Super!</strong> <?php echo $error; ?>
+</div>
+<?php
+} 
+
 }
 ?>
 <?php
@@ -115,6 +126,19 @@ include('top.php');
 .alert.success {background-color: #04AA6D;}
 .alert.info {background-color: #2196F3;}
 .alert.warning {background-color: #ff9800;}
+
+.alert2 {
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert2.success {background-color: #04AA6D;}
+.alert2.info {background-color: #2196F3;}
+.alert2.warning {background-color: #ff9800;}
 
 .closebtn {
   margin-left: 15px;

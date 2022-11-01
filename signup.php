@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+
 $a=0;
 if(isset($_POST["signup_button"])){
     $a=0;
@@ -65,7 +66,8 @@ $stmt->bind_param("sss",
                 $password_hash);
 
 if($stmt->execute()){
-      header("Location:Rezervari_page.php");
+        session_start();
+      header("Location:login.php");
       $stmt->close();
 } else {
     $error =  "Nu s-a inregistrat contul";
