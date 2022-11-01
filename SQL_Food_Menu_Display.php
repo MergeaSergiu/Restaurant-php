@@ -71,7 +71,7 @@ if($a === 1) {?>
 else if($a === 2) {?>
     <div class="alert2">
       <span class="closebtn">&times;</span>  
-      <strong>Atentie!</strong> <?php echo $error; ?>
+      <strong>Ura!</strong> <?php echo $error; ?>
     </div>
     <?php
 }
@@ -226,8 +226,8 @@ use LDAP\Result;
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddFood">
   Add Food
 </button>
-
         <br>
+        <h1> Pizza </h1>
         <table class="table table-striped table-dark">
             <thead>
                 <tr> 
@@ -256,9 +256,8 @@ use LDAP\Result;
 }
 ?> 
             </tbody>
-            <br>
         </table>
-
+        <h2> Desert </h2>
         <table class="table table-striped table-dark">
             <thead>
                 <tr> 
@@ -271,6 +270,67 @@ use LDAP\Result;
 <?php 
   $mysqli = require __DIR__ . "/database_food.php";
   $sql = "SELECT * from desert";
+  if($result = $mysqli->query($sql)){ 
+  while ($row = $result->fetch_assoc()){ 
+    ?>
+    <tbody>
+   <tr>
+        <td><?php echo $row["ID_Food"]; ?> </td>
+        <td><?php echo $row["Name_Food"] ?> </td>
+        <td><?php echo $row["Price"] ?> </td>
+        <td><button type="button" class="btn btn-danger deletebtn">Delete </button> </td>
+    </tr>
+        <?php
+  }
+  $result->free();
+}
+?> 
+            </tbody>
+        </table>
+        <h3> Bauturi </h3> 
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr> 
+        <th scope="col">ID_Food</th>
+        <th scope="col">Food</th>
+        <th scope="col">Price</th>
+        <th scope="col">Delete</th>
+                </tr>
+            </thead>
+<?php 
+  $mysqli = require __DIR__ . "/database_food.php";
+  $sql = "SELECT * from bauturi";
+  if($result = $mysqli->query($sql)){ 
+  while ($row = $result->fetch_assoc()){ 
+    ?>
+    <tbody>
+   <tr>
+        <td><?php echo $row["ID_Food"]; ?> </td>
+        <td><?php echo $row["Name_Food"] ?> </td>
+        <td><?php echo $row["Price"] ?> </td>
+        <td><button type="button" class="btn btn-danger deletebtn">Delete </button> </td>
+    </tr>
+        <?php
+  }
+  $result->free();
+}
+?> 
+            </tbody>
+        </table>
+        <h1> Fripturi </h1>
+
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr> 
+        <th scope="col">ID_Food</th>
+        <th scope="col">Food</th>
+        <th scope="col">Price</th>
+        <th scope="col">Delete</th>
+                </tr>
+            </thead>
+<?php 
+  $mysqli = require __DIR__ . "/database_food.php";
+  $sql = "SELECT * from fripturi";
   if($result = $mysqli->query($sql)){ 
   while ($row = $result->fetch_assoc()){ 
     ?>

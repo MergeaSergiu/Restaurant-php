@@ -73,6 +73,52 @@ if($result = $mysqli->query($sql)){
 }
 ?>
 
+<br>
+<?php
+$mysqli = require __DIR__ . "/database_food.php";
+$sql = "SELECT * from bauturi";
+if($result = $mysqli->query($sql)){
+    while ($row = $result->fetch_assoc()){
+?>
+<div class="card bg-success" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">
+        <?php
+        echo $row["Name_Food"];
+        ?></h5>
+    <p class="card-text">Price: <?php 
+        echo $row["Price"];
+    ?></p>
+  </div>
+</div>
+<?php
+    }
+}
+?>
+
+<br>
+<?php
+$mysqli = require __DIR__ . "/database_food.php";
+$sql = "SELECT * from fripturi";
+if($result = $mysqli->query($sql)){
+    while ($row = $result->fetch_assoc()){
+?>
+<div class="card bg-success" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">
+        <?php
+        echo $row["Name_Food"];
+        ?></h5>
+    <p class="card-text">Price: <?php 
+        echo $row["Price"];
+    ?></p>
+  </div>
+</div>
+<?php
+    }
+}
+?>
+
 
 
 </body>

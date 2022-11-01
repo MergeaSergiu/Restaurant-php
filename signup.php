@@ -1,6 +1,7 @@
 <?php
 
 $a=0;
+$error = "";
 if(isset($_POST["signup_button"])){
     $a=0;
 
