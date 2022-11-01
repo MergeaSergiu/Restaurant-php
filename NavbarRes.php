@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="signup.php"><i class="fa fa-user"></i> SignUp Page</a>
+          <a class="nav-link active text-white" aria-current="page" href="signup.php"><i class="fa fa-user"></i> SignUp </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="login.php"> <i class="fa fa-user"></i> Login Page</a>
+          <a class="nav-link active text-white" aria-current="page" href="login.php"> <i class="fa fa-user"></i> Login </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link active text-white" aria-current="page" href="UserProfile.php"> <i class="fa fa-user"></i> User Profile Page</a>
+          <a class="nav-link active text-white" aria-current="page" href="UserProfile.php"> <i class="fa fa-user"></i> Profile</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="Food_Menu_Page.php"> <i class="fa fa-user"></i> Food Menu</a>

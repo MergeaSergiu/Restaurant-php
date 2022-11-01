@@ -1,6 +1,5 @@
 <?php
 
-
 $a=0;
 if(isset($_POST["signup_button"])){
     $a=0;
@@ -81,6 +80,7 @@ if($stmt->execute()){
 
 }
 
+}
 if($a===1) { ?>
 <div class="alert">
   <span class="closebtn">&times;</span>  
@@ -89,7 +89,7 @@ if($a===1) { ?>
 <?php
 }
 
-}?>
+?>
 
 <?php
 include('top.php');

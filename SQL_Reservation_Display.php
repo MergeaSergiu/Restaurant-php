@@ -67,7 +67,9 @@ if($count === 1){
     $error = "Nu exista acest user";
     $a =1;
 }
+
 }
+
 }
 if($a === 1) {?>
     <div class="alert">
@@ -233,7 +235,7 @@ use LDAP\Result;
     </div>
   </div>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddUser">
-  Add Data
+  Add Reservation
 </button>
 
         <br>
