@@ -80,7 +80,7 @@ $sql = "SELECT * from bauturi";
 if($result = $mysqli->query($sql)){
     while ($row = $result->fetch_assoc()){
 ?>
-<div class="card bg-success" style="width: 18rem;">
+<div class="card bg-dark" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">
         <?php
@@ -103,7 +103,7 @@ $sql = "SELECT * from fripturi";
 if($result = $mysqli->query($sql)){
     while ($row = $result->fetch_assoc()){
 ?>
-<div class="card bg-success" style="width: 18rem;">
+<div class="card bg-warning" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">
         <?php

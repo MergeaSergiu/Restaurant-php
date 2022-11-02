@@ -4,9 +4,10 @@ $a=0;
 $error = "";
 if(isset($_POST['insertdata'])){
 
+  $dbformat4= $_POST["res_ora"];
   $dbFormat1 = date('H:i:s', strtotime('10:00 AM'));
 $dbFormat2 = date('H:i:s', strtotime('23:00 PM'));
-$dbFormat3 = date('H:i:s', strtotime('$_POST["res_ora"]'));
+$dbFormat3 = date('H:i:s', strtotime($dbformat4));
         $a=0;
 $email = $_POST["email"];
 
@@ -24,7 +25,7 @@ else if( strtotime($_POST["res_date"]) < strtotime("now")){
   $a=1;
 }
 
-else if( $dbFormat3  < $dbFormat1 || $dbFormat3 >  $dbFormat2) { 
+else if( strtotime($dbFormat3)  < strtotime($dbFormat1) && strtotime($dbFormat3) >  strtotime($dbFormat2)) { 
   $error = "In acel interval suntem inchisi";
   $a=1;
 }
