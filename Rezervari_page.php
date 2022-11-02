@@ -8,12 +8,20 @@ $a=0;
 if(isset($_POST["button_res"])){
     $error ="";
     $a=0;
+$dbFormat1 = date('H:i:s', strtotime('10:00 AM'));
+$dbFormat2 = date('H:i:s', strtotime('23:00 PM'));
+$dbFormat3 = date('H:i:s', strtotime('$_POST["res_ora"]'));
 if(empty($_POST["res_date"])){
     $error="Introduceti o Data valida";
     $a=1;
 }
 else if( strtotime($_POST["res_date"]) < strtotime("now")){
     $error ="Data nu este valabila";
+    $a=1;
+}
+
+else if( $dbFormat3  < $dbFormat1 || $dbFormat3 >  $dbFormat2) { 
+    $error = "In acel interval suntem inchisi";
     $a=1;
 }
 
