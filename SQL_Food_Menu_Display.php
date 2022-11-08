@@ -12,6 +12,11 @@ $food_name= $_POST["Name_Food"];
         $error="A user name is required";
         $a=1;
     }
+    else if(empty($_POST['Price'])){
+      $error = "This field can't be empty";
+      $a=1;
+    }
+    
     else{
 
     $mysqli = require __DIR__ . "/database_food.php";

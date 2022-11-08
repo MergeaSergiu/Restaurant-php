@@ -2,9 +2,25 @@
 session_start();
 $a=0;
 $error = "";
+
+
 if(isset($_POST['edit_bauturi'])){
+
+    $food_name = $_POST["Name_Food"];
+    $food_price = $_POST["Price"];
+
+    if(empty($food_name)){
+        $error="A valid name is required";
+        $a=1;
+    }
+    else if(empty($food_price)){
+        $error="This field can't be empty";
+}
+    else{
+
     $food_id = $_POST['food_id'];
     $mysqli = require __DIR__ . "/database_food.php";
+
     $query = "UPDATE bauturi SET  Name_Food='{$_POST["Name_Food"]}', Price='{$_POST["Price"]}'
         WHERE ID_Food='$food_id'";
     
@@ -14,6 +30,12 @@ if(isset($_POST['edit_bauturi'])){
         header("Location:SQL_Food_Menu_Display.php");
         exit(0);
     }
+    else{
+        $a=1;
+        $error = "Ceva nu a mers bine";
+    }
+
+}
 
 }
 
@@ -84,12 +106,11 @@ include('top.php');
       <?php
       echo "Welcome " . $_SESSION['user_name'];
       ?></div></p>
-    <h1> Datele contului</h1>
         <div class="container vh-100">
             <div class = "row justify-content-center">
                 <div class ="card w-70">
                     <div class="card-header text-center">
-                <h2>Edit Reservation</h2>
+                <h2>Edit Dish</h2>
                     </div>
                 <div class="card-body">
         <?php
@@ -117,7 +138,7 @@ include('top.php');
                 <input type="text" id="Price" name="Price" value="<?=$dish['Price'];?>" placeholder="Enter Price..."> 
             </div>
 
-      <button type="submit" class="btn btn-success" name="edit_pizza">Edit</button>
+      <button type="submit" class="btn btn-success" name="edit_bauturi">Edit</button>
     </form>  
                         <?php
                     }
