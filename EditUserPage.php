@@ -102,7 +102,7 @@ include('top.php');
     <div class= "container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <?php include('Navbar.php'); ?>
+                <?php include('NavBarEditPage.php'); ?>
             </div>  
             </div>
         </div>
@@ -129,18 +129,18 @@ include('top.php');
 
             if(mysqli_num_rows($user_run) > 0)
             {
-                    foreach($user_run as $users){
+                    foreach($user_run as $user){
                         ?>
-            <form action="EditUserCode.php" method="POST">
-                <input type="hidden" name="user_id" value="<?=$users['id'];?>">
+            <form action="" method="POST">
+                <input type="hidden" name="user_id" value="<?=$user['id'];?>">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" value="<?=$users['name'];?>">
+                <input type="text" id="name" name="name" value="<?=$user['name'];?>">
             </div>
 
             <div class="form-group">
                 <label for="email">Email Adress</label>
-                <input type="email" id="email" name="email" value="<?=$users['email'];?>"> 
+                <input type="email" id="email" name="email" value="<?=$user['email'];?>"> 
             </div>
 
             <div class="form-group">
@@ -160,7 +160,6 @@ include('top.php');
             }
         }
         ?>
-        </div>
         <div class="card-footer text-right">
                     <small>&copy; Restaurant App</small>
             </div>

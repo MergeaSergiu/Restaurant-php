@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl navbar-light bg-danger">
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
   <div class="container-fluid">
     <a class="navbar-brand text-white" href="Home_Page.php">Restaurant</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,6 +16,9 @@
           <a class="nav-link active text-white" aria-current="page" href="AdminPage.php"> <i class="fa fa-user"></i> Admin Page</a>
         </li>
         <li class="nav-item active">
+          <a class="nav-link active text-white" aria-current="page" href="SQL_User_Display.php"> <i class="fa fa-user"></i> Users </a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link active text-white" aria-current="page" href="SQL_Reservation_Display.php"> <i class="fa fa-user"></i> Reservations</a>
         </li>
         <li class="nav-item active">
@@ -31,6 +34,7 @@
             <a class="nav-link test-white" href="#"><i class="fa fa-facebook"> </i></a>
         </li>
         </ul>
+
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link test-white" href="#"><i class="fa fa-youtube"> </i></a>
@@ -39,12 +43,12 @@
 
     </div>
   </div>
-</nav>
-<style>
+  <style>
   nav{
-    width: 107%;
+    width: 120%;
     position:absolute;
-    right:3%;
-  }
+    right:10%;
+              
+          }
   </style>
-
+</nav>
