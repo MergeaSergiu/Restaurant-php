@@ -263,6 +263,7 @@ use LDAP\Result;
 				<th scope="col">Nr.Persoane</th>
 				<th scope="col">Email</th>
         <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
                 </tr>
             </thead>
 <?php 
@@ -279,6 +280,7 @@ use LDAP\Result;
         <td><?php echo $row["nr_persoane"] ?> </td>
         <td><?php echo $row["email"]?></td>
         <td><button type="button" class="btn btn-danger deletebtn">Delete </button> </td>
+        <td><a href="EditResPage.php?res_id=<?=$row["res_id"];?>" class="btn btn-success">Edit</td> 
     </tr>
         <?php
   }

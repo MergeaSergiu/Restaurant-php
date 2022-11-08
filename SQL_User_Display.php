@@ -248,6 +248,7 @@ include('top.php');
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddUser">
   Add Data
 </button>
+
     <br>
     <table class="table table-striped table-dark">
         <thead>
@@ -256,6 +257,7 @@ include('top.php');
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Delete</th>
+                <th scope="col">Edit</th>
             </tr>
     </thead>
     <?php 
@@ -270,7 +272,8 @@ include('top.php');
         <td><?php echo $row["name"] ?> </td>
         <td><?php echo $row["email"]?></td>
         <td><button type="button" class="btn btn-danger deletebtn">Delete </button> </td>
-        </tr>
+        <td><a href="EditUserPage.php?id=<?= $row["id"];?>" class="btn btn-success">Edit</td> 
+    </tr>
         <?php
   }
   $result->free();
