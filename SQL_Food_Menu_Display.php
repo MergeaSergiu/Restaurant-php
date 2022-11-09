@@ -12,6 +12,11 @@ $food_name= $_POST["Name_Food"];
         $error="A user name is required";
         $a=1;
     }
+    else if(empty($_POST['Price'])){
+      $error = "This field can't be empty";
+      $a=1;
+    }
+
     else{
 
     $mysqli = require __DIR__ . "/database_food.php";
@@ -45,7 +50,7 @@ $food_name= $_POST["Name_Food"];
           $stmt->close();
         }
         else {
-            $error=  "Nu s-a inregistrat mancarea";
+            $error= "Nu s-a inregistrat mancarea";
             $a = 1;
         }
     }else{
@@ -235,6 +240,7 @@ use LDAP\Result;
         <th scope="col">Food</th>
         <th scope="col">Price</th>
         <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
                 </tr>
             </thead>
 <?php 
@@ -249,6 +255,7 @@ use LDAP\Result;
         <td><?php echo $row["Name_Food"] ?> </td>
         <td><?php echo $row["Price"] ?> </td>
         <td><button type="button" class="btn btn-danger deletebtn">Delete </button> </td>
+        <td><a href="EditFoodPagePizza.php?food_id=<?=$row["ID_Food"];?>" class="btn btn-success">Edit</td>
     </tr>
         <?php
   }
@@ -265,6 +272,7 @@ use LDAP\Result;
         <th scope="col">Food</th>
         <th scope="col">Price</th>
         <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
                 </tr>
             </thead>
 <?php 
@@ -279,6 +287,7 @@ use LDAP\Result;
         <td><?php echo $row["Name_Food"] ?> </td>
         <td><?php echo $row["Price"] ?> </td>
         <td><button type="button" class="btn btn-danger deletebtn">Delete </button> </td>
+        <td><a href="EditFoodPageDesert.php?food_id=<?=$row["ID_Food"];?>" class="btn btn-success">Edit</td>
     </tr>
         <?php
   }
@@ -295,6 +304,7 @@ use LDAP\Result;
         <th scope="col">Food</th>
         <th scope="col">Price</th>
         <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
                 </tr>
             </thead>
 <?php 
@@ -309,6 +319,7 @@ use LDAP\Result;
         <td><?php echo $row["Name_Food"] ?> </td>
         <td><?php echo $row["Price"] ?> </td>
         <td><button type="button" class="btn btn-danger deletebtn">Delete </button> </td>
+        <td><a href="EditFoodPageBauturi.php?food_id=<?=$row["ID_Food"];?>" class="btn btn-success">Edit</td>
     </tr>
         <?php
   }
@@ -326,6 +337,7 @@ use LDAP\Result;
         <th scope="col">Food</th>
         <th scope="col">Price</th>
         <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
                 </tr>
             </thead>
 <?php 
@@ -340,6 +352,7 @@ use LDAP\Result;
         <td><?php echo $row["Name_Food"] ?> </td>
         <td><?php echo $row["Price"] ?> </td>
         <td><button type="button" class="btn btn-danger deletebtn">Delete </button> </td>
+        <td><a href="EditFoodPageFripturi.php?food_id=<?=$row["ID_Food"];?>" class="btn btn-success">Edit</td>
     </tr>
         <?php
   }

@@ -6,6 +6,10 @@ $food_name= $_POST["Name_Food"];
 
 if(isset($_POST['insertfood'])){
 
+    if(empty($_POST[$food_name])){
+         
+    }
+
     $mysqli = require __DIR__ . "/database_food.php";
     
     $count = 0;
