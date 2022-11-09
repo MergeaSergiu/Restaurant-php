@@ -4,16 +4,19 @@ $a=0;
 $error = "";
 if(isset($_POST['edit_desert'])){
 
+    $food_name = $_POST["Name_Food"];
+    $food_price = $_POST["Price"];
+
     if(empty($food_name)){
         $error="A valid name is required";
         $a=1;
     }
     else if(empty($food_price)){
-            $error="This field can't be empty";
-    }
+        $error="This field can't be empty";
+}
 
     else{
-        
+
     $food_id = $_POST['food_id'];
     $mysqli = require __DIR__ . "/database_food.php";
     $query = "UPDATE desert SET  Name_Food='{$_POST["Name_Food"]}', Price='{$_POST["Price"]}'

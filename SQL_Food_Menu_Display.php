@@ -16,7 +16,7 @@ $food_name= $_POST["Name_Food"];
       $error = "This field can't be empty";
       $a=1;
     }
-    
+
     else{
 
     $mysqli = require __DIR__ . "/database_food.php";
@@ -50,7 +50,7 @@ $food_name= $_POST["Name_Food"];
           $stmt->close();
         }
         else {
-            $error=  "Nu s-a inregistrat mancarea";
+            $error= "Nu s-a inregistrat mancarea";
             $a = 1;
         }
     }else{

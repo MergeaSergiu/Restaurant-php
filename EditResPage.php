@@ -42,7 +42,7 @@ else if ( ! filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
 
 else{
     $mysqli = require __DIR__ . "/res-lib.php";
-    $query = "UPDATE res_rezervari SET res_data='{$_POST["res_date"]}', res_ora = '{$_POST["res_ora"]}' , nr_persoane= '{$_POST["nr_persoane"]}', email='{$_POST["email"]}' 
+    $query = "UPDATE res_rezervari SET res_date='{$_POST["res_date"]}', res_ora = '{$_POST["res_ora"]}' , nr_persoane= '{$_POST["nr_persoane"]}', email='{$_POST["email"]}' 
         WHERE res_id='$res_id'";
     
     $query_run = $mysqli->query($query);
@@ -152,12 +152,12 @@ include('top.php');
 
             <div class="form-group">
             <label for="res_ora">Ora Rezervare</label>
-                <input type="time" id="res_ora" name="res_ora" placeholder="Enter a Hour..."> 
+                <input type="time" id="res_ora" name="res_ora" value="<?=$reservation['res_ora'];?>"placeholder="Enter a Hour..."> 
             </div>
 
             <div class="form-group">
             <label for="nr_persoane">Numar Persoane</label>
-                <input type="number" id="nr_persoane" name="nr_persoane" placeholder="Enter No. Persons...">
+                <input type="number" id="nr_persoane" name="nr_persoane" value="<?=$reservation['nr_persoane'];?>"placeholder="Enter No. Persons...">
             </div>
 
             <div class="form_group">
